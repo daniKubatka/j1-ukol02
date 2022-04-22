@@ -10,8 +10,7 @@ public class HlavniProgram {
         Turtle zofka;
         zofka = new Turtle();
 
-        nakresliRovnoramennyTrojuhelnik(zofka, 150, 30);
-
+        nakresliZmrzlinu(zofka, 215.00, 15.00);
 
     }
 
@@ -65,5 +64,11 @@ public class HlavniProgram {
         nakresliMnohouhelnik(zelva, delkaStrany, 24);
     }
 
-
+    private void nakresliZmrzlinu(Turtle zelva, double velikostKornoutu, double velikostKopecku){
+        zelva.setLocation(150.00, 150.00);
+        zelva.turnRight(165);
+        nakresliRovnoramennyTrojuhelnik(zelva, velikostKornoutu, 30);
+        zelva.turnRight(90);
+        nakresliKolecko(zelva, velikostKopecku);
+    }
 }
