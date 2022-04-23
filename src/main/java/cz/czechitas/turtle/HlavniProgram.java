@@ -10,14 +10,15 @@ public class HlavniProgram {
         Turtle zofka;
         Turtle leonardo;
         Turtle rafael;
-        zofka = new Turtle();
 
+        zofka = new Turtle();
         nakresliZmrzlinu(zofka, 215.00, 15.00);
 
         leonardo = new Turtle();
         nakresliSnehulaka(leonardo);
 
-
+        rafael = new Turtle();
+        nakresliVlacek(rafael);
     }
 
     private void nakresliMnohouhelnik(Turtle zelva, double delkaStrany, int pocetStran) {
@@ -88,5 +89,19 @@ public class HlavniProgram {
         nakresliKolecko(zelva, 5.00);
     }
 
-
+    private void nakresliVlacek(Turtle zelva){
+        zelva.setLocation(1050.00, 450.00);
+        zelva.turnLeft(90.00);
+        nakresliObdelnik(zelva, 230.00, 115.00);
+        zelva.turnRight(90.00);
+        nakresliObdelnik(zelva, 230.00, 150.00);
+        nakresliKolecko(zelva, 20.00);
+        zelva.setLocation(950.00, 488.00);
+        nakresliKolecko(zelva, 8.00);
+        zelva.setLocation(850.00, 488.00);
+        nakresliKolecko(zelva, 8.00);
+        zelva.setLocation(700.00, 488.00);
+        zelva.turnRight(90.00);
+        nakresliRovnoramennyTrojuhelnik(zelva, 120.00, 90.00);
+    }
 }
