@@ -8,9 +8,15 @@ public class HlavniProgram {
 
     public void main(String[] args) {
         Turtle zofka;
+        Turtle leonardo;
+        Turtle rafael;
         zofka = new Turtle();
 
         nakresliZmrzlinu(zofka, 215.00, 15.00);
+
+        leonardo = new Turtle();
+        nakresliSnehulaka(leonardo);
+
 
     }
 
@@ -40,11 +46,6 @@ public class HlavniProgram {
         zelva.move(stranaC);
     }
 
-    //todo
-    private void nakresliPravouhlyTrojuhelnik(Turtle zelva, double delkaStranyA, double delkaStranyB){
-    }
-
-
     public double vypocitejDelkuTretiStrany(double velikostRamene, double uhelMeziRameny) {
         double tretiStrana;
         tretiStrana = Math.abs((velikostRamene * Math.sin((uhelMeziRameny * Math.PI / 180.0) / 2.0)) * 2.0);
@@ -66,9 +67,26 @@ public class HlavniProgram {
 
     private void nakresliZmrzlinu(Turtle zelva, double velikostKornoutu, double velikostKopecku){
         zelva.setLocation(150.00, 150.00);
-        zelva.turnRight(165);
-        nakresliRovnoramennyTrojuhelnik(zelva, velikostKornoutu, 30);
-        zelva.turnRight(90);
+        zelva.turnRight(165.00);
+        nakresliRovnoramennyTrojuhelnik(zelva, velikostKornoutu, 30.00);
+        zelva.turnRight(90.00);
         nakresliKolecko(zelva, velikostKopecku);
     }
+
+    private void nakresliSnehulaka(Turtle zelva){
+        zelva.setLocation(450.00, 250.00);
+        zelva.turnRight(90.00);
+        nakresliKolecko(zelva, 25.00);
+        zelva.setLocation(470, 250);
+        zelva.turnLeft(180.00);
+        nakresliKolecko(zelva, 16.00);
+        zelva.setLocation(470.00, 127.00);
+        nakresliKolecko(zelva, 11.00);
+        zelva.setLocation(385, 210);
+        nakresliKolecko(zelva, 5.00);
+        zelva.setLocation(545.00, 210.00);
+        nakresliKolecko(zelva, 5.00);
+    }
+
+
 }
