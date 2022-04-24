@@ -2,6 +2,7 @@ package cz.czechitas.turtle;
 
 import cz.czechitas.turtle.engine.*;
 
+import java.awt.*;
 import java.util.zip.ZipEntry;
 
 public class HlavniProgram {
@@ -12,13 +13,13 @@ public class HlavniProgram {
         Turtle rafael;
 
         zofka = new Turtle();
-        nakresliZmrzlinu(zofka, 215.00, 15.00);
+        nakresliZmrzlinu(zofka, Color.orange, Color.pink);
 
         leonardo = new Turtle();
-        nakresliSnehulaka(leonardo);
+        nakresliSnehulaka(leonardo, Color.cyan);
 
         rafael = new Turtle();
-        nakresliVlacek(rafael);
+        nakresliVlacek(rafael, Color.red, Color.red, Color.black);
     }
 
     private void nakresliMnohouhelnik(Turtle zelva, double delkaStrany, int pocetStran) {
@@ -27,14 +28,6 @@ public class HlavniProgram {
             zelva.move(delkaStrany);
             zelva.turnRight(uhel);
         }
-    }
-
-    private void nakresliCtverec(Turtle zelva, double delkaStrany) {
-        nakresliMnohouhelnik(zelva, delkaStrany, 4);
-    }
-
-    private void nakresliRovnostrannyTrojuhelnik(Turtle zelva, double delkastrany){
-        nakresliMnohouhelnik(zelva, delkastrany, 3);
     }
 
     private void nakresliRovnoramennyTrojuhelnik(Turtle zelva, double delkaStranyAB, double uhel){
@@ -66,17 +59,20 @@ public class HlavniProgram {
         nakresliMnohouhelnik(zelva, delkaStrany, 24);
     }
 
-    private void nakresliZmrzlinu(Turtle zelva, double velikostKornoutu, double velikostKopecku){
+    private void nakresliZmrzlinu(Turtle zelva, Color barvaKournoutu, Color barvaZmrzliny){
         zelva.setLocation(150.00, 150.00);
         zelva.turnRight(165.00);
-        nakresliRovnoramennyTrojuhelnik(zelva, velikostKornoutu, 30.00);
+        zelva.setPenColor(barvaKournoutu);
+        nakresliRovnoramennyTrojuhelnik(zelva, 215.00, 30.00);
         zelva.turnRight(90.00);
-        nakresliKolecko(zelva, velikostKopecku);
+        zelva.setPenColor(barvaZmrzliny);
+        nakresliKolecko(zelva, 15.00);
     }
 
-    private void nakresliSnehulaka(Turtle zelva){
+    private void nakresliSnehulaka(Turtle zelva, Color barvaSnehulaka){
         zelva.setLocation(450.00, 250.00);
         zelva.turnRight(90.00);
+        zelva.setPenColor(barvaSnehulaka);
         nakresliKolecko(zelva, 25.00);
         zelva.setLocation(470, 250);
         zelva.turnLeft(180.00);
@@ -89,12 +85,14 @@ public class HlavniProgram {
         nakresliKolecko(zelva, 5.00);
     }
 
-    private void nakresliVlacek(Turtle zelva){
+    private void nakresliVlacek(Turtle zelva, Color barvaVlacku, Color barvaPredku, Color barvaKol){
         zelva.setLocation(1050.00, 450.00);
         zelva.turnLeft(90.00);
+        zelva.setPenColor(barvaVlacku);
         nakresliObdelnik(zelva, 230.00, 115.00);
         zelva.turnRight(90.00);
         nakresliObdelnik(zelva, 230.00, 150.00);
+        zelva.setPenColor(barvaKol);
         nakresliKolecko(zelva, 20.00);
         zelva.setLocation(950.00, 488.00);
         nakresliKolecko(zelva, 8.00);
@@ -102,6 +100,7 @@ public class HlavniProgram {
         nakresliKolecko(zelva, 8.00);
         zelva.setLocation(700.00, 488.00);
         zelva.turnRight(90.00);
+        zelva.setPenColor(barvaPredku);
         nakresliRovnoramennyTrojuhelnik(zelva, 120.00, 90.00);
     }
 }
